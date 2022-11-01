@@ -249,6 +249,14 @@ dataVitorHugo = [
                     top10RedCardsPerGame[6]
                 ]
 
+dataZapata = [
+                    top10DefendingDuelSuccessRate[8],
+                    top10AirDuelSuccessRate[8],
+                    top10Intercept[8],
+                    top10SmartPassSuccessRate[8],
+                    top10RedCardsPerGame[8]
+                ]
+
 
 # *************************************************************************** #
 #                                                                             #
@@ -262,4 +270,7 @@ makeComparisonRadar(clubColors, "De Sciglio", dataDeSciglio, dataLeague)
 
 clubColors = ["#5A2E8B", "#E12114", "white"]
 makeComparisonRadar(clubColors, "Vitor Hugo", dataVitorHugo, dataLeague)
+
+clubColors = ["#CE171F", "#231F20", "white"]
+makeComparisonRadar(clubColors, "Zapata", dataZapata, dataLeague)
 

@@ -8,18 +8,18 @@ def makeComparisonRadar(clubColors, playerName, playerValues, leagueValues):
     
     # parameter and value list
     params = [
-                "Defending Duel Success Rate\n(vs PL Defenders)",
-                "Air Duel Success Rate\n(vs PL Players)",
-                "Interceptions\n(vs PL Defenders)",
-                "Smart Pass Success Rate\n(vs PL Defenders)",
-                "Red Cards Per Game\n(vs PL Players)"
+                "Defending Duel Success Rate\n(vs SerieA Defenders)",
+                "Air Duel Success Rate\n(vs SerieA Players)",
+                "Interceptions\n(vs SerieA Defenders)",
+                "Smart Pass Success Rate\n(vs SerieA Defenders)",
+                "Red Cards Per Game\n(vs SerieA Players)"
              ]
     
     
     # Min and Max range for parameters
     min_range = [0, 0, 0, 0, 0]
-    max_range = [45.2, 90.6, 10.4, 66.6, 0.08]
-    # max_range = [45.8, 90.8, 9.4, 56.0, 0.14]
+    # max_range = [45.2, 90.6, 10.4, 66.6, 0.08]
+    max_range = [45.8, 90.8, 9.4, 56.0, 0.14]
     
     params_offset = [
                         True,
@@ -59,8 +59,8 @@ def makeComparisonRadar(clubColors, playerName, playerValues, leagueValues):
                                                         ),
                                 # Values to be used when plotting comparison slices
                                 kwargs_compare    = dict(
-                                                            facecolor = "black",
-                                                            # facecolor = "#009246",
+                                                            # facecolor = "black",
+                                                            facecolor = "#009246",
                                                             alpha     = 0.4,
                                                             edgecolor = "white",
                                                             zorder    = 2,
@@ -95,8 +95,8 @@ def makeComparisonRadar(clubColors, playerName, playerValues, leagueValues):
                                                                 zorder         = 3,
                                                                 bbox = dict(
                                                                                 edgecolor = "white",
-                                                                                facecolor = "black",
-                                                                                # facecolor = "#CE2B37",
+                                                                                # facecolor = "black",
+                                                                                facecolor = "#CE2B37",
                                                                                 boxstyle  = "circle,pad=0.4",
                                                                                 lw        = 2
                                                                             )
