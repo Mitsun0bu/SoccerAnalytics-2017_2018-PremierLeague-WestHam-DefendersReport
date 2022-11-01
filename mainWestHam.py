@@ -335,7 +335,7 @@ drawDividedPitch(axGoalMap, grids = True)
 #                                                                             #
 # *************************************************************************** #
 
-fillPitchDivisionGoalConceded(nConcededGoal, axGoalMap, dfGoalCoord, "#56061F")
+fillPitchDivisionGoalConceded(66, axGoalMap, dfGoalCoord, "#56061F")
 
 # *************************************************************************** #
 #                                                                             #

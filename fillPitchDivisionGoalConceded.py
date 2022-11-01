@@ -2,6 +2,7 @@ import pandas                 as pd
 import matplotlib.patheffects as effect
 
 def fillPitchDivisionGoalConceded(nConcededGoal, axGoalMap, dfGoalCoord, clubColor):
+    
     # Invert x and y coordinate to match vertical pitch
 
     dfGoalCoord.rename(
@@ -45,7 +46,9 @@ def fillPitchDivisionGoalConceded(nConcededGoal, axGoalMap, dfGoalCoord, clubCol
                                         occurenceScale = lambda x : x.occurenceShare/x.occurenceShare.max()
                                       )
                   )
-
+    
+    # print(dfGoalZones)
+    
     # Fill the pitch div
 
     counter = 0
@@ -61,24 +64,23 @@ def fillPitchDivisionGoalConceded(nConcededGoal, axGoalMap, dfGoalCoord, clubCol
                                 lw = 0
                               )
         # Add percentage values as text in zones
-        if dfGoalZones['occurenceShare'].iloc[counter] > .02:
-                text_ = axGoalMap.annotate(
-                                            xy = (X.right - (X.right - X.left)/2, Y.right - (Y.right - Y.left)/2),
-                                            text = f"{dfGoalZones['occurenceShare'].iloc[counter]:.0%}",
-                                            ha = "center",
-                                            va = "center",
-                                            color = "white",
-                                            size = 12,
-                                            weight = "bold",
-                                            zorder = 3
-                                          )
-                text_.set_path_effects(
-                                        [
-                                            effect.Stroke(
-                                                        linewidth  = 1.5,
-                                                        foreground = "black"
-                                                         ),
-                                            effect.Normal()
-                                         ]
-                                      )
+        text_ = axGoalMap.annotate(
+                                    xy = (X.right - (X.right - X.left)/2, Y.right - (Y.right - Y.left)/2),
+                                    text = f"{dfGoalZones['occurenceShare'].iloc[counter]:.0%}",
+                                    ha = "center",
+                                    va = "center",
+                                    color = "white",
+                                    size = 12,
+                                    weight = "bold",
+                                    zorder = 3
+                                  )
+        text_.set_path_effects(
+                                [
+                                    effect.Stroke(
+                                                linewidth  = 1.5,
+                                                foreground = "black"
+                                                 ),
+                                    effect.Normal()
+                                 ]
+                              )
         counter += 1

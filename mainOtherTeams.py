@@ -99,7 +99,7 @@ figGoalMap, axGoalMap               = getGoalMap()
 
 drawDividedPitch(axGoalMap, grids = True)
 
-fillPitchDivisionGoalConceded(nConcededGoal, axGoalMap, dfGoalCoord, "#5CBEEB")
+fillPitchDivisionGoalConceded(25, axGoalMap, dfGoalCoord, "#5CBEEB")
 
 figGoalMap.set_size_inches(10, 10)
 savePath = "./output/ManCityGoalMap.png"
@@ -118,7 +118,7 @@ figGoalMap, axGoalMap               = getGoalMap()
 
 drawDividedPitch(axGoalMap, grids = True)
 
-fillPitchDivisionGoalConceded(nConcededGoal, axGoalMap, dfGoalCoord, "#E30606")
+fillPitchDivisionGoalConceded(26, axGoalMap, dfGoalCoord, "#E30606")
 
 figGoalMap.set_size_inches(10, 10)
 savePath = "./output/ManUtdGoalMap.png"
@@ -137,7 +137,7 @@ figGoalMap, axGoalMap               = getGoalMap()
 
 drawDividedPitch(axGoalMap, grids = True)
 
-fillPitchDivisionGoalConceded(nConcededGoal, axGoalMap, dfGoalCoord, "#001C57")
+fillPitchDivisionGoalConceded(35, axGoalMap, dfGoalCoord, "#001C57")
 
 figGoalMap.set_size_inches(10, 10)
 savePath = "./output/TottenhamGoalMap.png"
@@ -156,7 +156,7 @@ figGoalMap, axGoalMap               = getGoalMap()
 
 drawDividedPitch(axGoalMap, grids = True)
 
-fillPitchDivisionGoalConceded(nConcededGoal, axGoalMap, dfGoalCoord, "#001A4D")
+fillPitchDivisionGoalConceded(35, axGoalMap, dfGoalCoord, "#001A4D")
 
 figGoalMap.set_size_inches(10, 10)
 savePath = "./output/ChelseaGoalMap.png"
@@ -176,7 +176,7 @@ figGoalMap, axGoalMap               = getGoalMap()
 
 drawDividedPitch(axGoalMap, grids = True)
 
-fillPitchDivisionGoalConceded(nConcededGoal, axGoalMap, dfGoalCoord, "#D00027")
+fillPitchDivisionGoalConceded(38, axGoalMap, dfGoalCoord, "#D00027")
 
 figGoalMap.set_size_inches(10, 10)
 savePath = "./output/LiverpoolGoalMap.png"
