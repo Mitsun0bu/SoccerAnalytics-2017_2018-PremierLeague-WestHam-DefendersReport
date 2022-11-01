@@ -308,4 +308,14 @@ drawDividedPitch(axGoalMap, grids = True)
 #                                                                             #
 # *************************************************************************** #
 
-fillPitchDivisionGoalConceded(nConcededGoal, axGoalMap, dfGoalCoord)
+fillPitchDivisionGoalConceded(nConcededGoal, axGoalMap, dfGoalCoord, "#56061F")
+
+# *************************************************************************** #
+#                                                                             #
+#                         ~~~ SAVE GOAL MAP FIGURE ~~~                        #
+#                                                                             #
+# *************************************************************************** #
+
+figGoalMap.set_size_inches(10, 10)
+savePath = "./output/WestHamGoalMap.png"
+figGoalMap.savefig(savePath, dpi = 800, transparent=True)

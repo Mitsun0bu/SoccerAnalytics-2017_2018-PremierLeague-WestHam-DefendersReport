@@ -1,6 +1,9 @@
+from statistics import mean
+
 def getLeagueDefenderDefendingDuelSuccessRate(events, defenderList):
     
     wonTag                   = 703
+    successRateList          = []
 
     for defenderId in defenderList:
         wonCount           = 0
@@ -13,7 +16,13 @@ def getLeagueDefenderDefendingDuelSuccessRate(events, defenderList):
                     for tag in event['tags']:
                         if tag['id'] == wonTag:
                             wonCount = wonCount + 1
-    
-    defendingDuelSuccessRate = round(((wonCount / totalCount)  * 100), 1)
-    
-    return defendingDuelSuccessRate
+        if totalCount == 0:
+            defendingDuelSuccessRate = 0
+        else:
+            defendingDuelSuccessRate = round(((wonCount / totalCount)  * 100), 1)
+        successRateList.append(defendingDuelSuccessRate)
+   
+    averageSuccessRate = mean(successRateList)
+    averageSuccessRate = round(averageSuccessRate, 1)
+
+    return averageSuccessRate

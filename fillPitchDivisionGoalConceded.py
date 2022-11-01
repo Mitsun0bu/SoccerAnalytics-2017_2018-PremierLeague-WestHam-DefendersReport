@@ -1,7 +1,7 @@
 import pandas                 as pd
 import matplotlib.patheffects as effect
 
-def fillPitchDivisionGoalConceded(nConcededGoal, axGoalMap, dfGoalCoord):
+def fillPitchDivisionGoalConceded(nConcededGoal, axGoalMap, dfGoalCoord, clubColor):
     # Invert x and y coordinate to match vertical pitch
 
     dfGoalCoord.rename(
@@ -55,7 +55,7 @@ def fillPitchDivisionGoalConceded(nConcededGoal, axGoalMap, dfGoalCoord):
                                 x      = [X.left, X.right],
                                 y1     = Y.left,
                                 y2     = Y.right,
-                                color  = "#56061F",
+                                color  = clubColor,
                                 alpha  = dfGoalZones["occurenceScale"].iloc[counter],
                                 zorder = -1,
                                 lw = 0
@@ -68,7 +68,7 @@ def fillPitchDivisionGoalConceded(nConcededGoal, axGoalMap, dfGoalCoord):
                                             ha = "center",
                                             va = "center",
                                             color = "white",
-                                            size = 5.5,
+                                            size = 12,
                                             weight = "bold",
                                             zorder = 3
                                           )

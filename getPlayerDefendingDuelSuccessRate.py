@@ -11,6 +11,9 @@ def getPlayerDefendingDuelSuccessRate(events, playerId):
                 if tag['id'] == wonTag:
                     wonCount = wonCount + 1
            
-    defendingDuelSuccessRate = round(((wonCount / totalCount)  * 100), 1)
+    if totalCount == 0:
+        defendingDuelSuccessRate = 0
+    else:
+        defendingDuelSuccessRate = round(((wonCount / totalCount)  * 100), 1)
 
     return defendingDuelSuccessRate

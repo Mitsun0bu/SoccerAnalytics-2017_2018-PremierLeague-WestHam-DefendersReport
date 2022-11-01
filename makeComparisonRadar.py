@@ -17,6 +17,7 @@ def makeComparisonRadar(clubColors, playerName, playerValues, leagueValues):
     
     # Min and Max range for parameters
     min_range = [0, 0, 0, 0]
+    # max_range = [50, 90.6, 10.4, 0.08]
     max_range = [50, 90.6, 10.4, 0.08]
     
     params_offset = [
@@ -56,7 +57,8 @@ def makeComparisonRadar(clubColors, playerName, playerValues, leagueValues):
                                                         ),
                                 # Values to be used when plotting comparison slices
                                 kwargs_compare    = dict(
-                                                            facecolor = "black",
+                                                            # facecolor = "black",
+                                                            facecolor = "#009246",
                                                             alpha     = 0.4,
                                                             edgecolor = "white",
                                                             zorder    = 2,
@@ -71,7 +73,8 @@ def makeComparisonRadar(clubColors, playerName, playerValues, leagueValues):
                                                         ),
                                 # Values to be used when adding parameter-values
                                 kwargs_values     = dict(
-                                                            color          = "white",
+                                                            # color          = "white",
+                                                            color          = "black",
                                                             fontsize       = 16,
                                                             fontproperties = fontNormal.prop,
                                                             zorder         = 4,
@@ -90,7 +93,8 @@ def makeComparisonRadar(clubColors, playerName, playerValues, leagueValues):
                                                                 zorder         = 3,
                                                                 bbox = dict(
                                                                                 edgecolor = "white",
-                                                                                facecolor = "black",
+                                                                                # facecolor = "black",
+                                                                                facecolor = "#CE2B37",
                                                                                 boxstyle  = "circle,pad=0.4",
                                                                                 lw        = 2
                                                                             )
@@ -100,3 +104,6 @@ def makeComparisonRadar(clubColors, playerName, playerValues, leagueValues):
     baker.adjust_texts(params_offset, offset = -0.25)
     
     plt.show()
+    fig.set_size_inches(10, 10)
+    savePath = "./output/" + playerName + ".png"
+    fig.savefig(savePath, dpi = 800, transparent=True)
