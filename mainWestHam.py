@@ -25,6 +25,10 @@ from   getLeagueDefenderInterceptPerGame         import getLeagueDefenderInterce
 
 from   getNumberMatchPlayed                      import getNumberMatchPlayed
 
+from   getLeagueDefenderSmartPassSuccessRate     import getLeagueDefenderSmartPassSuccessRate
+from   getPlayerSmartPassSuccessRate             import getPlayerSmartPassSuccessRate
+
+
 from   getPlayerRedCardsNumber                   import getPlayerRedCardsNumber
 from   getLeagueRedCardsNumber                   import getLeagueRedCardsNumber
 
@@ -136,26 +140,6 @@ for defenderId in westHamDefenderIdList:
 
 # *************************************************************************** #
 #                                                                             #
-#                         ~~~ NUMBER OF RED CARDS ~~~                         #
-#                                                                             #
-# *************************************************************************** #
-
-
-# Comparison between all players
-
-leagueRedCardsNumber = getLeagueRedCardsNumber(events)
-
-redCardPerGame       = round((leagueRedCardsNumber / len(matches)), 2) 
-
-westHamRedCardsPerGame = []
-
-for (defenderId, matchPlayed) in zip(westHamDefenderIdList, westHamNumberMatchPlayed):
-    nRedCard = getPlayerRedCardsNumber(events, defenderId)
-    westHamRedCardsPerGame.append(nRedCard / matchPlayed)
-   
-
-# *************************************************************************** #
-#                                                                             #
 #                         ~~~ DEFENDING DUEL DATA ~~~                         #
 #                                                                             #
 # *************************************************************************** #
@@ -199,6 +183,42 @@ leagueInterceptPerGame = getLeagueDefenderInterceptPerGame(events, premierLeague
 westHamIntercept = []
 for defenderId in westHamDefenderIdList:
     westHamIntercept.append(getPlayerInterceptPerGame(events, defenderId))
+    
+
+# *************************************************************************** #
+#                                                                             #
+#                         ~~~ SMART PASS DATA ~~~                             #
+#                                                                             #
+# *************************************************************************** #
+
+
+# Comparison between defenders only
+
+leagueSmartPassSuccessRate = getLeagueDefenderSmartPassSuccessRate(events, premierLeagueDefenderIdList)
+
+westHamSmartPassSuccessRate = []
+for defenderId in westHamDefenderIdList:
+    westHamSmartPassSuccessRate.append(getPlayerSmartPassSuccessRate(events, defenderId))
+
+
+# *************************************************************************** #
+#                                                                             #
+#                         ~~~ NUMBER OF RED CARDS ~~~                         #
+#                                                                             #
+# *************************************************************************** #
+
+
+# Comparison between all players
+
+leagueRedCardsNumber = getLeagueRedCardsNumber(events)
+
+redCardPerGame       = round((leagueRedCardsNumber / len(matches)), 2) 
+
+westHamRedCardsPerGame = []
+
+for (defenderId, matchPlayed) in zip(westHamDefenderIdList, westHamNumberMatchPlayed):
+    nRedCard = getPlayerRedCardsNumber(events, defenderId)
+    westHamRedCardsPerGame.append(nRedCard / matchPlayed)
 
 
 # *************************************************************************** #
@@ -212,6 +232,7 @@ dataLeague    = [
                     leagueDefendingDuelSuccessRate,
                     leagueAirDuelSuccessRate,
                     leagueInterceptPerGame,
+                    leagueSmartPassSuccessRate,
                     redCardPerGame
                 ]
 
@@ -219,6 +240,7 @@ dataOgbonna   = [
                     westHamDefendingDuelSuccessRate[0],
                     westHamAirDuelSuccessRate[0],
                     westHamIntercept[0],
+                    westHamSmartPassSuccessRate[0],
                     westHamRedCardsPerGame[0]
                 ]
 
@@ -226,6 +248,7 @@ dataZabaleta  = [
                     westHamDefendingDuelSuccessRate[1],
                     westHamAirDuelSuccessRate[1],
                     westHamIntercept[1],
+                    westHamSmartPassSuccessRate[1],
                     westHamRedCardsPerGame[1]
                 ]
 
@@ -233,6 +256,7 @@ dataReid      = [
                     westHamDefendingDuelSuccessRate[2],
                     westHamAirDuelSuccessRate[2],
                     westHamIntercept[2],
+                    westHamSmartPassSuccessRate[2],
                     westHamRedCardsPerGame[2]
                 ]
 
@@ -240,6 +264,7 @@ dataCresswell = [
                     westHamDefendingDuelSuccessRate[3],
                     westHamAirDuelSuccessRate[3],
                     westHamIntercept[3],
+                    westHamSmartPassSuccessRate[3],
                     westHamRedCardsPerGame[3]
                 ]
 
@@ -247,6 +272,7 @@ dataMasuaku   = [
                     westHamDefendingDuelSuccessRate[4],
                     westHamAirDuelSuccessRate[4],
                     westHamIntercept[4],
+                    westHamSmartPassSuccessRate[4],
                     westHamRedCardsPerGame[4]
                 ]
 
@@ -254,6 +280,7 @@ dataRice      = [
                     westHamDefendingDuelSuccessRate[5],
                     westHamAirDuelSuccessRate[5],
                     westHamIntercept[5],
+                    westHamSmartPassSuccessRate[5],
                     westHamRedCardsPerGame[5]
                 ]
 

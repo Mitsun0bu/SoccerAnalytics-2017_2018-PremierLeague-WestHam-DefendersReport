@@ -8,19 +8,21 @@ def makeComparisonRadar(clubColors, playerName, playerValues, leagueValues):
     
     # parameter and value list
     params = [
-                "Defending Duel Success Rate\n(vs PL Defenders)",
-                "Air Duel Success Rate\n(vs PL Players)",
-                "Interceptions\n(vs PL Defenders)",
-                "Red Cards Per Game\n(vs PL Players)"
+                "Defending Duel Success Rate\n(vs SerieA Defenders)",
+                "Air Duel Success Rate\n(vs SerieA Players)",
+                "Interceptions\n(vs SerieA Defenders)",
+                "Smart Pass Success Rate\n(vs SerieA Defenders)",
+                "Red Cards Per Game\n(vs SerieA Players)"
              ]
     
     
     # Min and Max range for parameters
-    min_range = [0, 0, 0, 0]
-    # max_range = [50, 90.6, 10.4, 0.08]
-    max_range = [50, 90.6, 10.4, 0.08]
+    min_range = [0, 0, 0, 0, 0]
+    # max_range = [45.2, 90.6, 10.4, 66.6, 0.08]
+    max_range = [45.8, 90.8, 9.4, 56.0, 0.14]
     
     params_offset = [
+                        True,
                         True,
                         True,
                         True,

@@ -12,12 +12,14 @@ from   getLeagueDefenderIdList                   import getLeagueDefenderIdList
 from   getLeagueDefenderDefendingDuelSuccessRate import getLeagueDefenderDefendingDuelSuccessRate
 from   getPlayerDefendingDuelSuccessRate         import getPlayerDefendingDuelSuccessRate
 from   getNumberMatchPlayed                      import getNumberMatchPlayed
-from   getPlayerRedCardsNumber                   import getPlayerRedCardsNumber
-from   getLeagueRedCardsNumber                   import getLeagueRedCardsNumber
 from   getLeagueAirDuelSuccessRate               import getLeagueAirDuelSuccessRate
 from   getPlayerAirDuelSuccessRate               import getPlayerAirDuelSuccessRate
 from   getPlayerInterceptPerGame                 import getPlayerInterceptPerGame
 from   getLeagueDefenderInterceptPerGame         import getLeagueDefenderInterceptPerGame
+from   getLeagueDefenderSmartPassSuccessRate     import getLeagueDefenderSmartPassSuccessRate
+from   getPlayerSmartPassSuccessRate             import getPlayerSmartPassSuccessRate
+from   getPlayerRedCardsNumber                   import getPlayerRedCardsNumber
+from   getLeagueRedCardsNumber                   import getLeagueRedCardsNumber
 from   makeComparisonRadar                       import makeComparisonRadar
 
 
@@ -135,26 +137,6 @@ for defenderId in top10IdDefendingDuelSuccessRate:
 
 # *************************************************************************** #
 #                                                                             #
-#                         ~~~ NUMBER OF RED CARDS ~~~                         #
-#                                                                             #
-# *************************************************************************** #
-
-
-# Comparison between all players
-
-leagueRedCardsNumber = getLeagueRedCardsNumber(events)
-
-redCardPerGame       = round((leagueRedCardsNumber / len(matches)), 2) 
-
-top10RedCardsPerGame = []
-
-for (defenderId, matchPlayed) in zip(top10IdDefendingDuelSuccessRate, top10NumberMatchPlayed):
-    nRedCard = getPlayerRedCardsNumber(events, defenderId)
-    top10RedCardsPerGame.append(nRedCard / matchPlayed)
-
-
-# *************************************************************************** #
-#                                                                             #
 #                         ~~~ DEFENDING DUEL DATA ~~~                         #
 #                                                                             #
 # *************************************************************************** #
@@ -181,8 +163,8 @@ leagueAirDuelSuccessRate  = getLeagueAirDuelSuccessRate(events)
 
 top10AirDuelSuccessRate = []
 for defenderId in top10IdDefendingDuelSuccessRate:
-    top10AirDuelSuccessRate.append(getPlayerAirDuelSuccessRate(events, defenderId)) 
-    
+    top10AirDuelSuccessRate.append(getPlayerAirDuelSuccessRate(events, defenderId))
+
 
 # *************************************************************************** #
 #                                                                             #
@@ -199,6 +181,42 @@ top10Intercept = []
 for defenderId in top10IdDefendingDuelSuccessRate:
     top10Intercept.append(getPlayerInterceptPerGame(events, defenderId))
 
+    
+# *************************************************************************** #
+#                                                                             #
+#                         ~~~ SMART PASS DATA ~~~                             #
+#                                                                             #
+# *************************************************************************** #
+
+
+# Comparison between defenders only
+
+leagueSmartPassSuccessRate = getLeagueDefenderSmartPassSuccessRate(events, serieADefenderIdList)
+
+top10SmartPassSuccessRate = []
+for defenderId in top10IdDefendingDuelSuccessRate:
+    top10SmartPassSuccessRate.append(getPlayerSmartPassSuccessRate(events, defenderId))
+
+
+# *************************************************************************** #
+#                                                                             #
+#                         ~~~ NUMBER OF RED CARDS ~~~                         #
+#                                                                             #
+# *************************************************************************** #
+
+
+# Comparison between all players
+
+leagueRedCardsNumber = getLeagueRedCardsNumber(events)
+
+redCardPerGame       = round((leagueRedCardsNumber / len(matches)), 2) 
+
+top10RedCardsPerGame = []
+
+for (defenderId, matchPlayed) in zip(top10IdDefendingDuelSuccessRate, top10NumberMatchPlayed):
+    nRedCard = getPlayerRedCardsNumber(events, defenderId)
+    top10RedCardsPerGame.append(nRedCard / matchPlayed)
+
 
 # *************************************************************************** #
 #                                                                             #
@@ -211,6 +229,7 @@ dataLeague    = [
                     leagueDefendingDuelSuccessRate,
                     leagueAirDuelSuccessRate,
                     leagueInterceptPerGame,
+                    leagueSmartPassSuccessRate,
                     redCardPerGame
                 ]
 
@@ -218,6 +237,7 @@ dataDeSciglio = [
                     top10DefendingDuelSuccessRate[5],
                     top10AirDuelSuccessRate[5],
                     top10Intercept[5],
+                    top10SmartPassSuccessRate[5],
                     top10RedCardsPerGame[5]
                 ]
 
